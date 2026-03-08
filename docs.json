@@ -1,0 +1,86 @@
+[
+   {
+    "title": "Company Introduction and Greetings",
+    "content": "Baadalsoft is a technology company that provides Cloud Infrastructure, DevOps Automation, Managed Hosting, AI Solutions, Data Analytics, and Secure API Services. If a user greets with words like hello, hi, hey, good morning, or greetings, respond by welcoming them warmly and briefly explaining Baadalsoft services. Offer help regarding company information, services, billing, technical support, and account management."
+  },
+  {
+    "title": "Account Registration",
+    "content": "Users can create a Baadalsoft account by clicking on the Sign Up button on the homepage. They must provide their name, email address, and password. After submitting the form, users receive a verification email to activate their account."
+  },
+  {
+    "title": "User Login",
+    "content": "Registered users can log in using their email and password from the login page. If multi-factor authentication is enabled, users must also verify using a one-time password sent to their registered device."
+  },
+  {
+    "title": "Password Reset",
+    "content": "If a user forgets their password, they can reset it using the Forgot Password option on the login page. A password reset link will be sent to their registered email address which allows them to set a new password securely."
+  },
+  {
+    "title": "User Dashboard",
+    "content": "After logging in, users can access their personalized dashboard. The dashboard provides an overview of active services, usage statistics, billing summaries, and quick access to support resources."
+  },
+  {
+    "title": "Cloud Infrastructure Services",
+    "content": "Baadalsoft provides scalable and reliable cloud infrastructure services including virtual machines, object storage, block storage, load balancers, and managed databases. These services help businesses deploy and scale applications efficiently."
+  },
+  {
+    "title": "DevOps Automation Services",
+    "content": "Baadalsoft offers DevOps solutions such as CI/CD pipeline setup, infrastructure automation, containerization using Docker, and Kubernetes orchestration. These services help teams accelerate software delivery and maintain system reliability."
+  },
+  {
+    "title": "Managed Hosting",
+    "content": "Baadalsoft provides managed hosting solutions for web applications and enterprise systems. Services include server monitoring, automated backups, security patching, and performance optimization."
+  },
+  {
+    "title": "AI and Data Services",
+    "content": "Baadalsoft delivers AI and data-driven solutions including machine learning model deployment, data analytics pipelines, business intelligence dashboards, and real-time data processing systems."
+  },
+  {
+    "title": "API Integration Services",
+    "content": "Developers can integrate Baadalsoft services using secure REST APIs. API keys and access tokens can be generated from the developer console to enable secure communication between applications."
+  },
+  {
+    "title": "Security Practices",
+    "content": "Baadalsoft follows industry-standard security practices including end-to-end data encryption, role-based access control, firewall protection, intrusion detection systems, and regular security audits."
+  },
+  {
+    "title": "Multi-Factor Authentication",
+    "content": "Users can enable multi-factor authentication for additional account security. This feature requires users to verify their identity using an OTP sent to their mobile device or authentication app."
+  },
+  {
+    "title": "Billing and Subscription Management",
+    "content": "Customers can manage their subscriptions from the billing section of the dashboard. Users can upgrade or downgrade plans, download invoices, update payment methods, and track usage-based charges."
+  },
+  {
+    "title": "Payment Methods",
+    "content": "Baadalsoft supports multiple payment methods including credit cards, debit cards, net banking, and digital wallets. All transactions are processed through secure and encrypted payment gateways."
+  },
+  {
+    "title": "Free Trial Policy",
+    "content": "New users are eligible for a 14-day free trial to explore Baadalsoft services. No payment information is required during the trial period. Users can upgrade to a paid plan anytime."
+  },
+  {
+    "title": "Customer Support Channels",
+    "content": "Users can contact Baadalsoft support through multiple channels including live chat, support tickets, email support, and a dedicated help center portal available 24/7."
+  },
+  {
+    "title": "Help Center Resources",
+    "content": "The help center provides user guides, video tutorials, FAQs, troubleshooting steps, and technical documentation to help users resolve common issues independently."
+  },
+  {
+    "title": "Service Level Agreement",
+    "content": "Baadalsoft guarantees 99.9 percent uptime for its cloud services under the Service Level Agreement. Compensation is provided to customers in case of prolonged service outages."
+  },
+  {
+    "title": "Data Backup and Recovery",
+    "content": "Automated data backup services ensure that customer data is securely stored and can be restored in case of accidental loss, system failure, or cyber incidents."
+  },
+  {
+    "title": "Compliance Standards",
+    "content": "Baadalsoft complies with global security and privacy standards including ISO certifications, data protection regulations, and industry best practices."
+  },
+  {
+    "title": "Account Deactivation",
+    "content": "Users can deactivate their account from the account settings page. Upon deactivation, active services are terminated and stored data is retained for a limited recovery period."
+  }
+]

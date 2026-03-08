@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Baadalsoft AI Assistant</title>
+
+<link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="header">
+    <img src="{{ url_for('static', filename='baadalsoft.png') }}" alt="logo">
+    <h1>Welcome from <span>Baadalsoft</span></h1>
+  </div>
+
+  <div class="welcome">
+    <h2>How can we help you today?</h2>
+    <p>
+      We can help you with company information, services, products,
+      support, and AI solutions.
+    </p>
+  </div>
+
+  <div class="chat-box" id="chatBox"></div>
+
+  <div class="input-area">
+    <input type="text" id="userInput" placeholder="Ask anything...">
+    <button class="send-btn" onclick="sendMessage()">↑</button>
+  </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
