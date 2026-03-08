@@ -6,8 +6,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 from google import genai
 import os
 
-# app = Flask(__name__)
-app = Flask(__name__, template_folder="../templates", static_folder="../static")
+app = Flask(
+    __name__,
+    template_folder="../templates",
+    static_folder="../static"
+)
 
 # -------- Gemini Client --------
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -16,7 +19,7 @@ client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 conversation_history = []
 
 # -------- Load Documents --------
-with open("docs.json") as f:
+with open("../docs.json") as f:
     documents = json.load(f)
 
 # -------- Chunk Function --------
@@ -25,11 +28,9 @@ def chunk_document(text, size=300):
 
 # -------- Prepare Chunks --------
 chunks_store = []
-
 for doc in documents:
     chunks = chunk_document(doc["content"])
-    for chunk in chunks:
-        chunks_store.append(chunk)
+    chunks_store.extend(chunks)
 
 # -------- TF-IDF Vectorizer --------
 vectorizer = TfidfVectorizer()
@@ -45,25 +46,19 @@ def find_similar_chunks(user_query):
 # -------- LLM Response --------
 def get_llm_response(context, user_message):
     prompt = f"""
-    You are Baadalsoft AI Assistant.
-    If user greets (hello/hi/hey), welcome them and explain company services briefly.
-    If user say (thanks, thankyou), then respond with "You're welcome! If you have any more questions about Baadalsoft's services, feel free to ask. I'm here to help!"
-    Answer using ONLY the context below.
+You are Baadalsoft AI Assistant.
+Answer using ONLY the context below.
 
+Context:
+{context}
 
-    Context:
-    {context}
-
-    User Question:
-    {user_message}
-    """
-
+User Question:
+{user_message}
+"""
     response = client.models.generate_content(
-        # model="models/gemini-2.5-flash",  
-        model="models/gemini-2.5-flash-lite",  
+        model="models/gemini-2.5-flash-lite",
         contents=prompt
     )
-
     return response.text
 
 # -------- Routes --------
@@ -73,8 +68,7 @@ def home():
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    user_message = request.json["message"]
-
+    user_message = request.json.get("message", "")
     similar_chunks = find_similar_chunks(user_message)
     context = "\n".join(similar_chunks)
 
@@ -87,6 +81,5 @@ def chat():
 
     return jsonify({"answer": answer})
 
-# -------- Run --------
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

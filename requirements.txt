@@ -1,4 +1,6 @@
-flask
+
+Flask==2.3.4
 numpy
 scikit-learn
 google-genai
+gunicorn
