@@ -6,7 +6,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 from google import genai
 import os
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
 # -------- Gemini Client --------
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
