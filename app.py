@@ -7,49 +7,46 @@ from google import genai
 import os
 
 app = Flask(__name__)
-# app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
-# -------- Gemini Client --------
+# Gemini Client
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# -------- Conversation History --------
+# Conversation History
 conversation_history = []
 
-# -------- Load Documents --------
+# Load Documents
 with open("docs.json") as f:
     documents = json.load(f)
 
-# -------- Chunk Function --------
+# Chunk Function
 def chunk_document(text, size=300):
     return [text[i:i+size] for i in range(0, len(text), size)]
 
-# -------- Prepare Chunks --------
+# Prepare Chunks
 chunks_store = []
-
 for doc in documents:
     chunks = chunk_document(doc["content"])
     for chunk in chunks:
         chunks_store.append(chunk)
 
-# -------- TF-IDF Vectorizer --------
+# TF-IDF Vectorizer
 vectorizer = TfidfVectorizer()
 doc_vectors = vectorizer.fit_transform(chunks_store)
 
-# -------- Similarity Search --------
+# Similarity Search
 def find_similar_chunks(user_query):
     query_vector = vectorizer.transform([user_query])
     similarities = cosine_similarity(query_vector, doc_vectors)
     top_indices = similarities.argsort()[0][-3:][::-1]
     return [chunks_store[i] for i in top_indices]
 
-# -------- LLM Response --------
+# LLM Response
 def get_llm_response(context, user_message):
     prompt = f"""
     You are Baadalsoft AI Assistant.
     If user greets (hello/hi/hey), welcome them and explain company services briefly.
     If user say (thanks, thankyou), then respond with "You're welcome! If you have any more questions about Baadalsoft's services, feel free to ask. I'm here to help!"
     Answer using ONLY the context below.
-
 
     Context:
     {context}
@@ -59,14 +56,13 @@ def get_llm_response(context, user_message):
     """
 
     response = client.models.generate_content(
-        # model="models/gemini-2.5-flash",  
         model="models/gemini-2.5-flash-lite",  
         contents=prompt
     )
 
     return response.text
 
-# -------- Routes --------
+# Routes
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -74,7 +70,6 @@ def home():
 @app.route("/chat", methods=["POST"])
 def chat():
     user_message = request.json["message"]
-
     similar_chunks = find_similar_chunks(user_message)
     context = "\n".join(similar_chunks)
 
@@ -87,6 +82,6 @@ def chat():
 
     return jsonify({"answer": answer})
 
-# -------- Run --------
+# Run
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()  # Vercel serverless friendly

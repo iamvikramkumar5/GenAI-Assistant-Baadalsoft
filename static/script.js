@@ -14,7 +14,7 @@ function addThinking() {
   think.id = "thinkingMsg";
   think.innerHTML = `
     <div class="thinking">
-      <img src="/static/logo.png" class="spin-logo">
+      <img src="${logoPath}" class="spin-logo">
       Thinking...
     </div>
   `;
