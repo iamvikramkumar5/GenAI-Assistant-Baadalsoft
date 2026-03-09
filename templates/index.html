@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Baadalsoft AI Assistant</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-<script>
-  const logoPath = "{{ url_for('static', filename='logo.png') }}";
-</script>
+<link rel="stylesheet" href="/static/styles.css" />
 </head>
 
 <body>
@@ -16,7 +13,7 @@
 <div class="app">
 
   <div class="header">
-    <img src="{{ url_for('static', filename='badalsoft.png') }}" alt="logo">
+    <img src="/static/baadalsoft.png" alt="logo">
     <h1>Welcome from <span>Baadalsoft</span></h1>
   </div>
 
@@ -37,6 +34,6 @@
 
 </div>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="/static/script.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 import json
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -7,6 +7,11 @@ from google import genai
 import os
 
 app = Flask(__name__)
+
+# Serve static files for Vercel
+@app.route('/static/<path:filename>')
+def custom_static(filename):
+    return send_from_directory('static', filename)
 
 # Gemini Client
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -54,12 +59,10 @@ def get_llm_response(context, user_message):
     User Question:
     {user_message}
     """
-
     response = client.models.generate_content(
         model="models/gemini-2.5-flash-lite",  
         contents=prompt
     )
-
     return response.text
 
 # Routes
@@ -82,6 +85,6 @@ def chat():
 
     return jsonify({"answer": answer})
 
-# Run
+# Run locally
 if __name__ == "__main__":
-    app.run()  # Vercel serverless friendly
+    app.run(debug=True)
