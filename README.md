@@ -4,9 +4,13 @@ This is a Flask-based AI Assistant web application using **Google Gemini API**, 
 
 The UI is simple, with a chatbox, input area, and thinking animation.
 
-**Live Project:** [Baadalsoft AI Assistant](https://gen-ai-assistant-baadalsoft.vercel.app/)
+# **Live Project:** [Baadalsoft AI Assistant](https://gen-ai-assistant-baadalsoft.vercel.app/)
 
+![Demo Video] 
+https://drive.google.com/file/d/1dYA97_NQ0ONxTa1BS7CLPmZZu6iQGskJ/view?usp=sharing
 ---
+https://github.com/user-attachments/assets/82d144f5-60da-4e18-99cb-acd6948eb1ac
+
 
 ## Folder Structure
 
