@@ -9,6 +9,8 @@ The UI is simple, with a chatbox, input area, and thinking animation.
 ![Demo Video] 
 https://drive.google.com/file/d/1dYA97_NQ0ONxTa1BS7CLPmZZu6iQGskJ/view?usp=sharing
 ---
+https://github.com/user-attachments/assets/f27d5174-50b0-4c38-9b26-73a78e827f90
+
 https://github.com/user-attachments/assets/82d144f5-60da-4e18-99cb-acd6948eb1ac
 
 
